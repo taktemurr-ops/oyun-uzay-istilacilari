@@ -5,7 +5,6 @@ import 'package:arcade_motoru/istila.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const istilaId = 'oyun-uzay-istilacilari';
 
@@ -88,7 +87,7 @@ final istilaConfig = GameConfig(
   rules: istilaRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => istilaRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => istilaRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintInvaders(c, s, p, t);
